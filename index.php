@@ -8,7 +8,7 @@
 	require_once('SassCompiler.php');
 	$c = new SassCompiler();
 	$c->addIncludePath('css/lib/bootstrap-3.3.0/');
-	$c->compile('_bootstrap.scss', 'test.scss');
+	$c->compile('test.scss');
 ?>
 	</style>
 </head>

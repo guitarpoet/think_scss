@@ -1,3 +1,11 @@
+
+@mixin init_test() {
+	h1 {
+		color: red;
+	}
+}
+
+
 body {
 	h1  {
 		background: image_url('/img/logo.png');

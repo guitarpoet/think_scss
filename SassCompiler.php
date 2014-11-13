@@ -37,9 +37,9 @@
 				}
 			}
 
-			$content = $this->prefix."\n";
+			$this->content = $this->prefix."\n";
 			foreach($this->sasses as $sass) {
-				$content .= $this->readFile($sass)."\n";
+				$this->content .= $this->readFile($sass)."\n";
 			}
 
 
@@ -48,8 +48,8 @@
 					$plugin->suffix($this);
 				}
 			}
-			$content .= $this->suffix;
-			return $content;
+			$this->content .= $this->suffix;
+			return $this->content;
 		}
 
 		public function readFile($file) {
