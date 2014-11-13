@@ -7,7 +7,8 @@
 <?php
 	require_once('SassCompiler.php');
 	$c = new SassCompiler();
-	$c->compile('themes/default/test.scss');
+	$c->addIncludePath('css/lib/bootstrap-3.3.0/');
+	$c->compile('_bootstrap.scss', 'test.scss');
 ?>
 	</style>
 </head>

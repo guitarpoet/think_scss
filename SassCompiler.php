@@ -19,8 +19,16 @@
 		public function precompile() {
 			if(!isset($this->p)) {
 				$this->p = new PluginLoader();
-				$this->ps = $this->p->load(dirname(__FILE__).'/precompiler/');
+				$this->ps = $this->p->load(dirname(__FILE__).'/precompiler');
 			}
+
+			if(isset($this->theme)) {
+				$this->addIncludePath('css/themes/'.$this->theme);
+			}
+			else {
+				$this->addIncludePath('css/themes/default');
+			}
+
 			$this->prefix = '';
 			$this->suffix = '';
 			foreach($this->ps as $plugin) {
