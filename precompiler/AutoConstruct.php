@@ -13,7 +13,7 @@
 			}
 		}
 
-		private function addConstruct($name, $compiler) {
+		protected function addConstruct($name, $compiler) {
 			$the_name = 'init_'.$name;
 			if(strpos($compiler->content, $the_name) !== FALSE) {
 				$compiler->suffix .= '@include '.$the_name.'();';

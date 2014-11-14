@@ -3,3 +3,9 @@
 		color: red;
 	}
 }
+
+@mixin responsive_test($width) {
+	h1 {
+		font-size: $width / 1920 * 100;
+	}
+}

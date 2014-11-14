@@ -4,16 +4,22 @@
 	<meta charset="UTF-8">
 	<title></title>
 	<style>
+	.red {
+		background-color: red;
+		height: 100px;
+	}
 <?php
 	require_once('SassCompiler.php');
 	$c = new SassCompiler();
-	$c->lib('bootstrap', '3.3.0');
-	$c->compile('_bootstrap.scss', 'test.scss');
+	$c->resolutions = array(640, 960, 1024, 1280, 1440, 1920);
+	$c->widget('panel');
+	$c->compile('test');
 ?>
 	</style>
 </head>
 <body>
 	<div class="container">
+		<div class="panel red"></div>
 		<div id="nav" class="col-xs-3">
 		</div>
 		<div id="main" class="col-xs-9">

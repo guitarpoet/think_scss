@@ -14,6 +14,17 @@
 			$this->sass = new Sass();
 			$this->sasses = array();
 			$this->includePathes = array(dirname(__FILE__).'/css');
+			$this->theme = 'default';
+		}
+
+		public function widget($name) {
+			if(is_array($name)) {
+				foreach($name as $n) {
+					$this->widget($name);
+				}
+			}
+			else
+				$this->addSass('themes/'.$this->theme.'/widgets/'.$name);
 		}
 
 		public function precompile() {
@@ -91,6 +102,11 @@
 		}
 
 		public function addSass($file, $index = -1) {
+			$pi = pathinfo($file);
+
+			if(!isset($pi['extension']) || $pi['extension'] != 'scss')
+				$file .= '.scss';
+
 			if(array_search($file, $this->sasses) === FALSE) {
 				if($index == -1)
 					$this->sasses []= $file;
