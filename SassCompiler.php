@@ -86,6 +86,10 @@
 			}
 		}
 
+		public function lib($name, $version = '1.0.0') {
+			$this->addIncludePath('css/lib/'.$name.'-'.$version);
+		}
+
 		public function addSass($file, $index = -1) {
 			if(array_search($file, $this->sasses) === FALSE) {
 				if($index == -1)
