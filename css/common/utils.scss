@@ -1,0 +1,5 @@
+$screen_width: $screen_max_width;
+
+@function res($n) {
+	@return $screen_width / $screen_max_width * $n;
+}

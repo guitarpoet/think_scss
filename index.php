@@ -13,13 +13,14 @@
 	$c = new SassCompiler();
 	$c->resolutions = array(640, 960, 1024, 1280, 1440, 1920);
 	$c->widget('panel');
-	$c->compile('test');
+	$c->compile('variables', 'common/utils', 'test');
 ?>
 	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="panel red"></div>
+		<div class="test row"></div>
 		<div id="nav" class="col-xs-3">
 		</div>
 		<div id="main" class="col-xs-9">

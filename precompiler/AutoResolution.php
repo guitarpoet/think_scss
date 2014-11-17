@@ -6,7 +6,7 @@
 				return;
 
 			foreach($compiler->resolutions as $r) {
-				$compiler->suffix .= '@media (min-width: '.$r.'px) {';
+				$compiler->suffix .= '@media (min-width: '.$r.'px) {'."\n";
 				foreach($compiler->sasses as $s) {
 					$s = str_replace('.scss', '', $s);
 					$basename = basename($s);
@@ -17,14 +17,14 @@
 					}
 					$this->addConstruct($name, $compiler, $r);
 				}
-				$compiler->suffix .= '}';
+				$compiler->suffix .= '}'."\n";
 			}
 		}
 
 		protected function addConstruct($name, $compiler, $r) {
 			$the_name = 'responsive_'.$name;
 			if(strpos($compiler->content, $the_name) !== FALSE) {
-					$compiler->suffix .= '@include '.$the_name.'('.$r.'px);';
+					$compiler->suffix .= "\t".'@include '.$the_name.'('.$r.'px);'."\n";
 			}
 		}
 	}
